@@ -66,11 +66,11 @@ onUnmounted(() => {
                         </a>
                     </li>
                     <li class="border-b md:border-none py-4">
-                        <a class="relative group" href="#">
+                        <RouterLink class="relative group" to="/contact-us">
                             Contact Us
                             <span
                                 class="absolute hidden md:block left-0 bottom-[-2px] w-0 h-[2px] bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
-                        </a>
+                        </RouterLink>
                     </li>
                     <li class="border-b md:border-none py-4">
                         <RouterLink class="relative group" to="/about">
