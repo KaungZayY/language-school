@@ -1,5 +1,9 @@
 <script setup>
+import { onMounted } from "vue";
 
+onMounted(() => {
+    initCarousels();
+})
 </script>
 
 <template>
@@ -11,8 +15,8 @@
                 <img src="@/assets/images/landing-page-1.jpg"
                     class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     <figcaption 
-                        class="absolute top-1/2 left-2 md:left-14 text-white text-xl md:text-2xl">
-                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum dolor sit amet,</span><br>
+                        class="absolute top-1/2 left-2 md:left-14 text-white text-xl md:text-2xl bg-gray-500 rounded-lg p-4">
+                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum dolor sit amet,<br></span><br>
                         consectetur adipiscing elit,<br>
                         sed do eiusmod tempor incididunt ut labore<br> 
                         et dolore magna aliqua. <br>
@@ -24,8 +28,8 @@
                 <img src="@/assets/images/landing-page-2.jpg"
                     class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     <figcaption 
-                        class="absolute top-1/2 md:top-1/3 left-2 md:left-14 text-white text-xl md:text-2xl">
-                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum,</span><br>
+                        class="absolute top-1/2 md:top-1/3 left-2 md:left-14 text-white text-xl md:text-2xl bg-gray-500 rounded-lg p-4">
+                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum,<br></span><br>
                         consectetur adipiscing elit,<br>
                         et dolore magna aliqua. <br>
                         Ut enim ad minim veniam, quis nostrud<br>
@@ -36,8 +40,8 @@
                 <img src="@/assets/images/landing-page-3.jpg"
                     class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     <figcaption 
-                        class="absolute top-1/2 md:top-2/3 right-2 md:right-14 text-white text-xl md:text-2xl">
-                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum,</span><br>
+                        class="absolute top-1/2 md:top-2/3 right-2 md:right-14 text-white text-xl md:text-2xl bg-gray-500 rounded-lg p-4">
+                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum,<br></span><br>
                         consectetur adipiscing elit,<br>
                         et dolore magna aliqua. <br>
                         Ut enim ad minim veniam, quis nostrud<br>
@@ -48,8 +52,8 @@
                 <img src="@/assets/images/landing-page-4.jpg"
                     class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                     <figcaption 
-                        class="absolute top-1/2 left-2 md:left-14 text-white text-xl md:text-2xl">
-                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum dolor sit amet,</span><br>
+                        class="absolute top-1/2 left-2 md:left-14 text-white text-xl md:text-2xl bg-gray-500 rounded-lg p-4">
+                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum dolor sit amet,<br></span><br>
                         consectetur adipiscing elit,<br>
                         sed do eiusmod tempor incididunt ut labore<br> 
                         et dolore magna aliqua. <br>

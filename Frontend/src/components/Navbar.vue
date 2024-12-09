@@ -1,9 +1,18 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, onMounted, onUnmounted, defineProps } from 'vue';
+import { RouterLink } from 'vue-router';
+
+const props = defineProps({
+  customClass: {
+    type: String,
+    default: 'bg-transparent'
+  }
+});
 
 const state = reactive({
     showSearchBox: false,
     showMenu: false,
+    isScrolled: false,
 });
 
 const toggleSearchBox = () => {
@@ -13,24 +22,36 @@ const toggleSearchBox = () => {
 const toggleMenu = () => {
     state.showMenu = !state.showMenu;
 };
+
+const handleScroll = () => {
+    state.isScrolled = window.scrollY > 0;
+};
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
-    <div class="fixed w-full">
+    <div class="fixed top-0 z-10 w-full pb-3" :class="[state.isScrolled ? 'bg-black' : props.customClass]">
         <nav class="flex justify-end md:justify-between items-center w-[92%] mx-auto mt-4">
             <div class="hidden md:block">
-                <img class="w-12 cursor-pointer" src="@/assets/images/icons/logo.png" alt="logo">
+                <img class="cursor-pointer" src="@/assets/images/icons/logo.png" :class="[state.isScrolled ? 'w-8' : 'w-12' ]" alt="logo">
             </div>
             <div :class="[{ 'top-[0]': state.showMenu }]"
                 class="z-[-10] md:z-0 fixed md:static min-h-screen bg-gray-400 md:bg-transparent md:min-h-fit left-0 top-[-100%] w-full md:w-auto flex items-center px-5 text-white">
                 <ul
                     class="flex flex-col md:flex-row md:items-center md:justify-between md:gap-[4vw] w-full md:w-auto gap-4 uppercase font-bold text-2xl md:text-sm">
                     <li class="border-b md:border-none py-4">
-                        <a class="relative group" href="#">
+                        <RouterLink class="relative group" to="/">
                             Home
                             <span
                                 class="absolute hidden md:block left-0 bottom-[-2px] w-0 h-[2px] bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
-                        </a>
+                        </RouterLink>
                     </li>
                     <li class="border-b md:border-none py-4">
                         <a class="relative group" href="#">
@@ -47,11 +68,11 @@ const toggleMenu = () => {
                         </a>
                     </li>
                     <li class="border-b md:border-none py-4">
-                        <a class="relative group" href="#">
+                        <RouterLink class="relative group" to="/about">
                             About Us
                             <span
                                 class="absolute hidden md:block left-0 bottom-[-2px] w-0 h-[2px] bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
-                        </a>
+                        </RouterLink>
                     </li>
                 </ul>
             </div>
