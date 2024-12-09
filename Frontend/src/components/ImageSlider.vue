@@ -7,25 +7,55 @@
         <!-- Carousel wrapper -->
         <div class="relative h-screen overflow-x-hidden">
             <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <figure class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="@/assets/images/landing-page-1.jpg"
                     class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
+                    <figcaption 
+                        class="absolute top-1/2 left-2 md:left-14 text-white text-xl md:text-2xl">
+                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum dolor sit amet,</span><br>
+                        consectetur adipiscing elit,<br>
+                        sed do eiusmod tempor incididunt ut labore<br> 
+                        et dolore magna aliqua. <br>
+                        Ut enim ad minim veniam, quis nostrud<br>
+                    </figcaption>
+            </figure>
             <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <figure class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="@/assets/images/landing-page-2.jpg"
                     class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
+                    <figcaption 
+                        class="absolute top-1/2 md:top-1/3 left-2 md:left-14 text-white text-xl md:text-2xl">
+                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum,</span><br>
+                        consectetur adipiscing elit,<br>
+                        et dolore magna aliqua. <br>
+                        Ut enim ad minim veniam, quis nostrud<br>
+                    </figcaption>
+            </figure>
             <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <figure class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="@/assets/images/landing-page-3.jpg"
                     class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
+                    <figcaption 
+                        class="absolute top-1/2 md:top-2/3 right-2 md:right-14 text-white text-xl md:text-2xl">
+                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum,</span><br>
+                        consectetur adipiscing elit,<br>
+                        et dolore magna aliqua. <br>
+                        Ut enim ad minim veniam, quis nostrud<br>
+                    </figcaption>
+            </figure>
             <!-- Item 4 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <figure class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="@/assets/images/landing-page-4.jpg"
                     class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
+                    <figcaption 
+                        class="absolute top-1/2 left-2 md:left-14 text-white text-xl md:text-2xl">
+                        <span class="text-2xl md:text-4xl font-bold">Lorem ipsum dolor sit amet,</span><br>
+                        consectetur adipiscing elit,<br>
+                        sed do eiusmod tempor incididunt ut labore<br> 
+                        et dolore magna aliqua. <br>
+                        Ut enim ad minim veniam, quis nostrud<br>
+                    </figcaption>
+            </figure>
         </div>
         <!-- Slider indicators -->
         <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
