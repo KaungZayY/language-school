@@ -3,10 +3,10 @@ import { reactive, onMounted, onUnmounted, defineProps } from 'vue';
 import { RouterLink } from 'vue-router';
 
 const props = defineProps({
-  customClass: {
-    type: String,
-    default: 'bg-transparent'
-  }
+    customClass: {
+        type: String,
+        default: 'bg-transparent'
+    }
 });
 
 const state = reactive({
@@ -40,7 +40,12 @@ onUnmounted(() => {
     <div class="fixed top-0 z-10 w-full pb-3" :class="[state.isScrolled ? 'bg-black' : props.customClass]">
         <nav class="flex justify-end md:justify-between items-center w-[92%] mx-auto mt-4">
             <div class="hidden md:block">
-                <img class="cursor-pointer" src="@/assets/images/icons/logo.png" :class="[state.isScrolled ? 'w-8' : 'w-12' ]" alt="logo">
+                <img class="cursor-pointer" src="@/assets/images/icons/logo.png" :class="[
+                    state.isScrolled ? 'scale-75' : 'scale-100',
+                    'w-12',
+                    'h-12',
+                    'object-contain'
+                ]" alt="logo">
             </div>
             <div :class="[{ 'top-[0]': state.showMenu }]"
                 class="z-[-10] md:z-0 fixed md:static min-h-screen bg-gray-400 md:bg-transparent md:min-h-fit left-0 top-[-100%] w-full md:w-auto flex items-center px-5 text-white">

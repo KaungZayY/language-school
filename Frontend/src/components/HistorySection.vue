@@ -70,9 +70,9 @@ const currentContent = computed(() => yearData.value[selectedYearRange.value])
 <template>
     <div class="section flex flex-col lg:flex-row lg:gap-12 p-4 max-w-screen-xl mx-auto">
         <!-- Sidebar Year Selector -->
-        <div class="flex lg:flex-col gap-2 text-gray-600 lg:w-1/4 overflow-scroll mb-2">
+        <div class="flex lg:flex-col gap-2 text-gray-600 lg:w-1/4 overflow-x-scroll md:overflow-x-hidden mb-2">
             <div v-for="(content, range) in yearData" :key="range" @click="selectedYearRange = range"
-                class="cursor-pointer px-4 py-2 rounded-md text-center lg:text-left border lg:border-0 hover:bg-gray-100 transition"
+                class="cursor-pointer px-4 py-2 rounded-md text-center border lg:border-0 hover:bg-gray-100 transition"
                 :class="{
                     'bg-sky-100 text-sky-500 font-bold': selectedYearRange === range,
                 }">
@@ -91,9 +91,9 @@ const currentContent = computed(() => yearData.value[selectedYearRange.value])
     </div>
 
     <div class="relative w-full flex justify-center">
-        <div class="flex flex-col md:flex-row max-w-7xl bg-sky-100 items-center gap-10">
+        <div class="flex flex-col md:flex-row max-w-7xl bg-sky-100 items-center gap-4">
             <img src="@/assets/images/about/group-mask.jpg" alt="Circular Image"
-                class="section w-64 h-64 md:w-96 md:h-96 rounded-full object-cover mt-4" />
+                class="section w-64 h-64 md:w-96 md:h-96 rounded-full object-cover mt-4 mb-4" />
             <div class="section mt-4 ml-4 mr-4">
                 <h1 class="text-2xl md:text-4xl font-bold uppercase mb-8">
                     RECOGNISED BY MINISTRY OF HIGHER EDUCATION MALAYSIA
