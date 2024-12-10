@@ -89,7 +89,7 @@ import { RouterLink } from 'vue-router';
 
     <div class="flex flex-col md:flex-row max-w-full bg-sky-100 rounded-lg items-center p-8">
         <!-- Student Quote 1 -->
-        <div class="md:w-1/2 flex flex-col items-center mb-8 md:mb-0">
+        <div class="section md:w-1/2 flex flex-col items-center mb-8 md:mb-0">
             <img src="@/assets/images/home/student-1.jpg" alt="Circular Image"
                 class="w-64 h-64 md:w-[350px] md:h-[350px] rounded-full object-cover mt-4 mb-4 md:ml-8" />
             <blockquote class="p-4 italic text-lg text-center md:text-left">
@@ -100,7 +100,7 @@ import { RouterLink } from 'vue-router';
         </div>
 
         <!-- Student Quote 2 -->
-        <div class="md:w-1/2 flex flex-col items-center mb-8 md:mb-0">
+        <div class="section md:w-1/2 flex flex-col items-center mb-8 md:mb-0">
             <img src="@/assets/images/home/student-2.jpg" alt="Circular Image"
                 class="w-64 h-64 md:w-[350px] md:h-[350px] rounded-full object-cover mt-4 mb-4 md:ml-8" />
             <blockquote class="p-4 italic text-lg text-center md:text-left">
