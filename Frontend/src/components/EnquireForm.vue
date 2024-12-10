@@ -2,16 +2,16 @@
     <section class="p-6 bg-sky-50 mt-4">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <!-- Left Side (Image and Styling) -->
-            <div class="relative">
+            <div class="relative section">
                 <div
                     class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 bg-orange-500 rounded-full -z-10">
                 </div>
-                <img src="@/assets/images/contact/enquire-now.jpg" alt="Enquire Now"
-                    class="rounded-full shadow-lg w-full max-w-sm mx-auto lg:max-w-none lg:w-4/5" />
+                <img src="@/assets/images/contact/enquire-now.jpg" alt="Enquire Now Image"
+                class="w-80 h-80 md:w-[550px] md:h-[550px] rounded-full object-cover shadow-lg" />
             </div>
 
             <!-- Right Side (Form) -->
-            <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="bg-white p-8 rounded-lg shadow-md section">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">ENQUIRE NOW</h2>
                 <form>
                     <!-- Full Name -->
@@ -135,3 +135,23 @@
         </div>
     </section>
 </template>
+
+<style scoped>
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.section {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+</style>

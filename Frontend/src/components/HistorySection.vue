@@ -96,19 +96,17 @@ const currentContent = computed(() => yearData.value[selectedYearRange.value])
                 class="section w-64 h-64 md:w-96 md:h-96 rounded-full object-cover mt-4 mb-4" />
             <div class="section mt-4 ml-4 mr-4">
                 <h1 class="text-2xl md:text-4xl font-bold uppercase mb-8">
-                    RECOGNISED BY MINISTRY OF HIGHER EDUCATION MALAYSIA
+                    RECOGNISED BY MINISTRY OF HIGHER EDUCATION
                 </h1>
                 <p class="text-normal md:text-lg">
-                    ELS Malaysia's flagship course, the Certified Intensive English Programme (CIEP) holds official
-                    recognition from the Malaysian Ministry of Higher Education (MOHE) as the benchmark for English
-                    language proficiency required for international student admissions. This recognition signifies that
-                    Malaysian universities acknowledge and accept the CIEP certification as valid proof of English
-                    proficiency.<br>
+                    Non risus sodales nibh sodales netus varius adipiscing vitae. Maecenas lacus semper eu morbi, eu mi
+                    inceptos. Interdum euismod felis vulputate iaculis torquent; per vivamus. Maecenas augue volutpat;
+                    ultricies nunc congue ridiculus cursus. Cubilia magnis senectus diam metus libero facilisi.<br>
 
-                    Our CIEP students have the advantage of fulfilling their university's English language prerequisites
-                    without the need for standardised tests such as IELTS, TOEFL, or PTE. By completing the CIEP, our
-                    students not only meet these requirements but also enhance their English language skills
-                    significantly, ensuring a smooth transition to their academic journey.<br>
+                    Nullam accumsan venenatis aliquam nullam congue feugiat malesuada. Ligula lacinia habitant dis magna
+                    facilisis efficitur. Etiam pharetra blandit penatibus pulvinar semper taciti proin laoreet senectus.
+                    Arcu venenatis sem imperdiet. Venenatis aliquam nullam congue feugiat malesuada. Ligula lacinia habitant dis magna
+                    facilisis efficitur.<br>
                 </p>
             </div>
         </div>
