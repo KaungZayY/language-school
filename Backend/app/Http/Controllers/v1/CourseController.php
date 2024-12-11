@@ -6,9 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Models\Course;
+use Illuminate\Support\Facades\Gate;
 
 class CourseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except(['index', 'show']);
+    }
+
     public function index()
     {
         try {
@@ -28,6 +34,7 @@ class CourseController extends Controller
 
     public function store(StoreCourseRequest $request)
     {
+        Gate::authorize('modify');
         try {
             $data = $request->validated();
             $course = Course::create([
