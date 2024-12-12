@@ -5,14 +5,21 @@ namespace App\Http\Controllers\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ApplyCourseRequest;
 use App\Models\Course;
+use App\Models\Enrollment;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class EnrollmentController extends Controller
 {
-    public function apply(ApplyCourseRequest $request, $course_id)
+    public function __construct()
+    {
+        $this->middleware('user');
+    }
+
+    public function enroll(ApplyCourseRequest $request, $id)
     {
         try {
-            $course = Course::find($course_id);
+            $course = Course::find($id);
             if (!$course) {
                 return response()->json([
                     'message' => 'Course not found',
@@ -21,7 +28,9 @@ class UserController extends Controller
             }
             $data = $request->validated();
             $user = Auth::guard('sanctum')->user();
-            $course->users()->attach($user, [
+            $enrollment = Enrollment::create([
+                'user_id' => $user->id,
+                'course_id' => $course->id,
                 'full_name' => $data['full_name'],
                 'passport_no' => $data['passport_no'],
                 'nationality' => $data['nationality'],
@@ -30,8 +39,6 @@ class UserController extends Controller
                 'postal_code' => $data['postal_code'],
                 'email' => $data['email'],
                 'phone_number' => $data['phone_number'],
-                'created_at' => now(),
-                'updated_at' => now(),
             ]);
             return response()->json([
                 'status' => 'success',

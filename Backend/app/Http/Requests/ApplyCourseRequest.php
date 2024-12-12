@@ -23,7 +23,7 @@ class ApplyCourseRequest extends FormRequest
     {
         return [
             'full_name' => 'required|string|max:255',
-            'passport_no' => 'required|string|max:50|unique:user_course,passport_no',
+            'passport_no' => 'required|string|max:50',
             'nationality' => 'required|string|max:100',
             'address' => 'required|string|max:500',
             'city' => 'required|string|max:100',
@@ -38,7 +38,6 @@ class ApplyCourseRequest extends FormRequest
         return [
             'full_name.required' => 'The full name is required.',
             'passport_no.required' => 'The passport number is required.',
-            'passport_no.unique' => 'This passport number has already been used for a course application.',
             'email.required' => 'The email address is required.',
             'email.email' => 'The email address must be a valid email.',
             'phone_number.required' => 'The phone number is required.',
