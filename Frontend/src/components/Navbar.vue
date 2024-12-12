@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, onMounted, onUnmounted, defineProps } from 'vue';
 import { RouterLink } from 'vue-router';
+import NavBtn from './NavBtn.vue';
 
 const props = defineProps({
     customClass: {
@@ -82,18 +83,7 @@ onUnmounted(() => {
                 </ul>
             </div>
             <div class="relative inline-flex gap-2 md:gap-8">
-                <button
-                    class="relative bg-sky-500 text-white px-3 py-2 rounded-full uppercase font-bold text-sm overflow-hidden group">
-                    <span
-                        class="absolute inset-0 bg-orange-500 transition-transform duration-500 transform scale-x-0 origin-left group-hover:scale-x-100"></span>
-                    <span class="relative z-10 inline-flex items-center">
-                        Apply Now
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-2 ml-1 fill-white">
-                            <path
-                                d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
-                        </svg>
-                    </span>
-                </button>
+                <NavBtn />
                 <select name="" id=""
                     class="bg-white border px-4 py-2 border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500">
                     <option value="">English</option>
