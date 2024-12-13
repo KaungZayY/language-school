@@ -4,6 +4,7 @@ import { reactive, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useToast } from 'vue-toastification';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+import { RouterLink } from 'vue-router';
 
 const toast = useToast();
 
@@ -101,10 +102,10 @@ watch(
                             <span class="text-lg font-bold">Class Duration</span>
                             <span class="text-gray-600">4 hours per week</span>
                         </div>
-                        <button
+                        <RouterLink :to="`/courses/${state.course.id}/apply`"
                             class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-600">
                             Apply Now
-                        </button>
+                        </RouterLink>
                     </div>
                 </div>
             </div>

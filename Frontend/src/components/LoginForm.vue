@@ -24,7 +24,8 @@ const handleLogin = async () => {
     };
 
     try {
-        const response = await axios.post(`api/login`, credentials);
+        await axios.get('/sanctum');
+        const response = await axios.post(`/api/login`, credentials);
         localStorage.setItem('token', response.data.token);
         toast.success('Login Successful!');
         router.push('/');
