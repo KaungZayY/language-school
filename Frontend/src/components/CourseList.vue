@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, onMounted } from 'vue';
 import axios from 'axios';
+import { RouterLink } from 'vue-router';
 
 const state = reactive({
     course_types: [],
@@ -65,7 +66,7 @@ const toggleSubCourse = (id) => {
                         class="text-sm md:block mt-2 md:mt-4">
                         <li v-for="course in course_type.courses" :key="course.id"
                             class="hover:text-sky-500 cursor-pointer">
-                            {{ course.title }}
+                            <RouterLink :to="`/courses/${course.id}`">{{ course.title }}</RouterLink>
                         </li>
                     </ul>
                 </div>
@@ -74,7 +75,7 @@ const toggleSubCourse = (id) => {
     </li>
 </template>
 
-<style>
+<style scoped>
 @media (min-width: 768px) {
     .md\:flex-row {
         display: flex;

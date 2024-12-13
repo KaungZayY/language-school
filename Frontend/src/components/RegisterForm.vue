@@ -48,7 +48,7 @@ const handleRegister = async () => {
             }
         }  else {
             toast.error('An error occurred while creating an account. Please try again later.');
-            console.error('Error While Login:', error);
+            console.error('Error While Creating an Account:', error);
         }
     }
 };
