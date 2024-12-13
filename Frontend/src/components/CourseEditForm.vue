@@ -3,8 +3,11 @@ import axios from 'axios';
 import { onMounted, reactive } from 'vue';
 import { useToast } from 'vue-toastification';
 import router from '@/router';
+import { useRoute } from 'vue-router';
 
 const toast = useToast();
+const route = useRoute();
+
 
 const courseForm = reactive({
     title: '',
@@ -32,19 +35,11 @@ const errors = reactive({
 
 const state = reactive({
     course_types: {},
+    course:{},
 })
 
-
-const resetForm = () => {
-    Object.keys(courseForm).forEach(key => {
-        courseForm[key] = '';
-    });
-    courseForm.max_class_size = null;
-    courseForm.avg_class_size = null;
-    courseForm.course_type_id = null;
-};
-
 const handleSubmit = async () => {
+    const id = route.params.id;
     const course = {
         title: courseForm.title,
         description: courseForm.description,
@@ -59,13 +54,13 @@ const handleSubmit = async () => {
 
     try {
         await axios.get('/sanctum');
-        await axios.post(`/api/courses`, course, {
+        await axios.put(`/api/courses/${id}`, course, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
             withCredentials: true,
         });
-        toast.success('Course Created!');
+        toast.success('Course Updated!');
         router.push('/admin');
     } catch (error) {
         if (error.response && error.response.status === 422) {
@@ -87,10 +82,23 @@ const handleSubmit = async () => {
 };
 
 onMounted(async () => {
+    const id = route.params.id;
     try {
         await axios.get('sanctum');
         const response = await axios.get(`/api/course-types`);
+        const course_response = await axios.get(`/api/courses/${id}`);
         state.course_types = response.data.course_types;
+        
+        courseForm.title = course_response.data.course.title;
+        courseForm.description = course_response.data.course.description;
+        courseForm.levels = course_response.data.course.levels;
+        courseForm.schedule = course_response.data.course.schedule;
+        courseForm.max_class_size = course_response.data.course.max_class_size;
+        courseForm.avg_class_size = course_response.data.course.avg_class_size;
+        courseForm.duration = course_response.data.course.duration;
+        courseForm.start_date = course_response.data.course.start_date;
+        courseForm.course_type_id = course_response.data.course.course_type_id;
+        
     } catch (error) {
         toast.error('Error While Fetching Data.');
         console.error('Error While Fetching Data:', error);
@@ -100,7 +108,7 @@ onMounted(async () => {
 
 <template>
     <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-3xl mx-auto">
-        <h2 class="text-2xl font-semibold mb-6">Create New Course</h2>
+        <h2 class="text-2xl font-semibold mb-6">Edit Course</h2>
         <form @submit.prevent="handleSubmit" class="space-y-6">
             <!-- Title -->
             <div>
@@ -197,11 +205,11 @@ onMounted(async () => {
             <div class="flex items-center justify-between">
                 <button type="submit"
                     class="px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition duration-200">
-                    Submit
+                    Update
                 </button>
-                <button type="button" @click="resetForm"
+                <button type="button"
                     class="px-6 py-3 bg-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-400 transition duration-200">
-                    Reset
+                    Cancel
                 </button>
             </div>
         </form>

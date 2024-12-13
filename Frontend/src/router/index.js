@@ -8,6 +8,7 @@ import CourseDetailView from '@/views/CourseDetailView.vue'
 import CourseApplyView from '@/views/CourseApplyView.vue'
 import AdminPannelView from '@/views/AdminPannelView.vue'
 import CourseCreateView from '@/views/CourseCreateView.vue'
+import CourseEditView from '@/views/CourseEditView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +42,11 @@ const router = createRouter({
       path: '/courses/:id',
       name: 'course-detail',
       component: CourseDetailView,
+    },
+    {
+      path: '/courses/:id/edit',
+      name: 'course-update',
+      component: CourseEditView,
     },
     {
       path: '/courses/:id/apply',

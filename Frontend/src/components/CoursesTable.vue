@@ -2,6 +2,7 @@
 import { onMounted, reactive } from 'vue';
 import axios from 'axios';
 import { useToast } from 'vue-toastification';
+import { RouterLink } from 'vue-router';
 
 const toast = useToast();
 
@@ -77,10 +78,10 @@ onMounted( async ()=>{
                         <td class="py-3 px-4">{{ course.course_type_id }}</td>
                         <td class="py-3 px-4 flex justify-center space-x-2">
                             <!-- Edit Button -->
-                            <button
+                            <RouterLink :to="`/courses/${course.id}/edit`"
                                 class="text-blue-600 hover:text-blue-800 font-medium px-4 py-2 bg-blue-100 rounded-md">
                                 Edit
-                            </button>
+                            </RouterLink>
                             <!-- Delete Button -->
                             <button @click="handleDelete(course.id)"
                                 class="text-red-600 hover:text-red-800 font-medium px-4 py-2 bg-red-100 rounded-md">
