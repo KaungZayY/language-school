@@ -7,9 +7,30 @@ const state = reactive({
     course_types: [],
     showCourses: false,
     subCourseVisibility: {},
+    isAdmin: false,
 });
 
+const authCheck = async () => {
+    await axios.get('/sanctum');
+    const user = await axios.get(`/api/user`, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        withCredentials: true,
+    });
+    if (user.data && user.data.role == 'admin') {
+        state.isAdmin = true;
+    }
+}
+
 onMounted(async () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        authCheck();
+    }
+    else {
+        state.isAdmin = false;
+    }
     try {
         const response = await axios.get(`/api/course-types`);
         state.course_types = response.data.course_types;
@@ -24,11 +45,6 @@ onMounted(async () => {
 });
 
 const toggleSubCourse = (id) => {
-    // Reset visibility for all course types
-    for (const key in state.subCourseVisibility) {
-        state.subCourseVisibility[key] = false;
-    }
-    // Toggle visibility for the selected course type
     state.subCourseVisibility[id] = !state.subCourseVisibility[id];
 };
 </script>
@@ -71,6 +87,11 @@ const toggleSubCourse = (id) => {
                     </ul>
                 </div>
             </ul>
+            <div v-if="state.isAdmin" class="mt-4 flex justify-center">
+                <RouterLink to="admin" class="px-4 py-2 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600">
+                    Admin Pannel
+                </RouterLink>
+            </div>
         </div>
     </li>
 </template>
