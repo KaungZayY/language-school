@@ -7,6 +7,7 @@ import RegisterView from '@/views/RegisterView.vue'
 import CourseDetailView from '@/views/CourseDetailView.vue'
 import CourseApplyView from '@/views/CourseApplyView.vue'
 import AdminPannelView from '@/views/AdminPannelView.vue'
+import CourseCreateView from '@/views/CourseCreateView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,6 +31,11 @@ const router = createRouter({
       path: '/admin',
       name: 'admin',
       component: AdminPannelView,
+    },
+    {
+      path: '/courses/create',
+      name: 'course-create',
+      component: CourseCreateView,
     },
     {
       path: '/courses/:id',

@@ -1,10 +1,11 @@
 <script setup>
 import AdminSideBar from '@/components/AdminSideBar.vue';
-import CoursesTable from '@/components/CoursesTable.vue';
+import CourseCreateForm from '@/components/CourseCreateForm.vue';
+
 </script>
 
 <template>
     <AdminSideBar>
-        <CoursesTable />
+        <CourseCreateForm />
     </AdminSideBar>
 </template>
