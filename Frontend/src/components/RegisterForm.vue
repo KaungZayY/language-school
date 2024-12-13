@@ -30,6 +30,7 @@ const handleRegister = async () => {
     };
 
     try {
+        await axios.get('/sanctum');
         const response = await axios.post(`api/register`, newUser);
         localStorage.setItem('token', response.data.token);
         toast.success('Created an Account!');

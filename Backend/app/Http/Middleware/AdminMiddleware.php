@@ -11,7 +11,7 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        $user = Auth::guard('sanctum')->user();
+        $user = $request->user();
 
         if ($user && $user->role === 'admin') {
             return $next($request);

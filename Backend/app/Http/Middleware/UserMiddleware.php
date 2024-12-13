@@ -16,8 +16,7 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = Auth::guard('sanctum')->user();
-
+        $user = $request->user();
         if ($user && $user->role === 'user') {
             return $next($request);
         }

@@ -23,5 +23,5 @@ Route::prefix('v1')->group(function () {
     Route::post('login',[v1AuthController::class, 'login']);
     Route::post('logout',[v1AuthController::class, 'logout'])->middleware('auth:sanctum');
 
-    Route::post('courses/{id}/apply', [v1EnrollmentController::class, 'enroll']);
+    Route::post('courses/{id}/apply', [v1EnrollmentController::class, 'enroll'])->middleware('auth:sanctum');
 });
