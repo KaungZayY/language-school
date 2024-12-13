@@ -2,6 +2,7 @@
 import { reactive, onMounted, onUnmounted, defineProps } from 'vue';
 import { RouterLink } from 'vue-router';
 import NavBtn from './NavBtn.vue';
+import CourseList from './CourseList.vue';
 
 const props = defineProps({
     customClass: {
@@ -14,6 +15,10 @@ const state = reactive({
     showSearchBox: false,
     showMenu: false,
     isScrolled: false,
+    showCourses: false,
+    showSubCourses1: false,
+    showSubCourses2: false,
+    showSubCourses3: false,
 });
 
 const toggleSearchBox = () => {
@@ -59,13 +64,7 @@ onUnmounted(() => {
                                 class="absolute hidden md:block left-0 bottom-[-2px] w-0 h-[2px] bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
                         </RouterLink>
                     </li>
-                    <li class="border-b md:border-none py-4">
-                        <a class="relative group" href="#">
-                            Courses
-                            <span
-                                class="absolute hidden md:block left-0 bottom-[-2px] w-0 h-[2px] bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                    </li>
+                    <CourseList />
                     <li class="border-b md:border-none py-4">
                         <RouterLink class="relative group" to="/contact-us">
                             Contact Us
@@ -114,12 +113,12 @@ onUnmounted(() => {
                 <button @click="toggleMenu" class="cursor-pointer md:hidden">
                     <!-- Close Button -->
                     <svg v-if="state.showMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
-                        class="close-icon w-8 h-8">
+                        class="close-icon w-8 h-8" :class="[state.isScrolled ? 'fill-white' : 'fill-black']">
                         <path
                             d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
                     </svg>
                     <!-- Default Menu -->
-                    <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="menu-icon w-8 h-8">
+                    <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="menu-icon w-8 h-8" :class="[state.isScrolled ? 'fill-white' : 'fill-black']">
                         <path
                             d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
                     </svg>

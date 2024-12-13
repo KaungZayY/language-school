@@ -10,7 +10,7 @@ class CourseTypeController extends Controller
     public function index()
     {
         try {
-            $course_types = CourseType::all();
+            $course_types = CourseType::with('courses')->get();
             return response()->json([
                 'status' => 'success',
                 'course_types' => $course_types,
